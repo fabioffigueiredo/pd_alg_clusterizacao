@@ -9,7 +9,7 @@ Resumo do projeto, como executar localmente, estrutura de pastas, decisões téc
   - Notebook base: `Projeto_Clusterizacao.ipynb` (com interpretação detalhada e gráficos comparativos por cluster).
   - Notebook executado: `Projeto_Clusterizacao_executado.ipynb` (versão já rodada com saídas fixadas).
   - HTMLs: `Projeto_Clusterizacao.html` e `Projeto_Clusterizacao_executado.html`.
-  - PDF: `Projeto_Clusterizacao.pdf` (opcional, para submissão/consulta).
+  - PDFs: `Projeto_Clusterizacao.pdf` e `Projeto_Clusterizacao2.pdf` (opcionais, para submissão/consulta).
 
 ## Base de Dados
 - Fonte: Kaggle — `rohan0301/unsupervised-learning-on-country-data`.
@@ -67,6 +67,21 @@ pip install -r requirements.txt
 Observações de ambiente:
 - Não sobrescreva arquivos `.env` sem confirmação (não são necessários para execução padrão deste projeto).
 - Padronize `random_state` e caminhos em um único bloco de configuração quando estender o projeto para múltiplos ambientes.
+
+## Quick Start (execução mínima)
+```
+python3 -m venv clusterizacao
+source clusterizacao/bin/activate    # macOS/Linux
+pip install -r requirements.txt
+
+# Gerar HTML executando o notebook completo
+jupyter nbconvert --to html --execute Projeto_Clusterizacao.ipynb --output Projeto_Clusterizacao.html
+
+# Servir localmente
+python3 -m http.server 8002
+# Acesse: http://localhost:8002/Projeto_Clusterizacao.html
+```
+Se preferir interação, rode `jupyter notebook` e execute `Projeto_Clusterizacao.ipynb` célula a célula.
 
 ## Como Executar
 ### A) Rodar os notebooks no Jupyter
@@ -126,6 +141,10 @@ Ou imprimir o HTML em PDF via navegador.
   - Reinstale: `pip install -r requirements.txt` e confira se o venv está ativo.
 - Kaggle API:
   - Sem credenciais, copie os CSVs para `data/` e execute.
+ - Logo grande/desproporcional:
+   - O cabeçalho foi ajustado para não herdar estilos de H1. No primeiro bloco markdown do notebook, a imagem está fora do título e usa estilo inline:
+     - `style="height: 100px; width: auto; vertical-align: middle;"`
+     - Para alterar, ajuste apenas o `height` (ex.: 80px/120px) mantendo `width: auto` para preservar a proporção.
 
 ## Boas Práticas adotadas
 - Preferência por soluções simples e sem duplicação de código.
@@ -138,6 +157,14 @@ Ou imprimir o HTML em PDF via navegador.
 - Automatizar conversões (HTML/PDF) via `make html`/`make pdf` ou script `tasks.py`.
 - Adicionar testes simples (ex.: validação de existência de colunas, shapes esperados e cálculo de médias por cluster).
 - Incluir CI (ex.: GitHub Actions) para validar execução do notebook e geração de artefatos.
+
+## Checklist de Submissão
+- venv criado e ativado; dependências instaladas via `requirements.txt`.
+- Notebook executado sem erros; gráficos gerados em `images/`.
+- HTML gerado com `nbconvert` e validado no navegador.
+- PDFs gerados (`Projeto_Clusterizacao.pdf` e/ou `Projeto_Clusterizacao2.pdf`) quando necessário.
+- Avisos de acessibilidade (alt text) revisados; adicionar `alt` se aplicável.
+- Commit das alterações com mensagem clara e organização da estrutura.
 
 ## Autor
 - Fabio Ferreira Figueiredo — Repositório: `pd_algoritimos_clusterizacao`
