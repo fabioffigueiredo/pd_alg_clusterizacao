@@ -7,9 +7,6 @@ Resumo do projeto, como executar localmente, estrutura de pastas, decisões téc
 - Abordagens: K‑Means (K‑Médias) e Hierárquica (Ward), com avaliação por Silhouette/Elbow e interpretação dos centróides/perfis por cluster.
 - Entregáveis principais:
   - Notebook base: `Projeto_Clusterizacao.ipynb` (com interpretação detalhada e gráficos comparativos por cluster).
-  - Notebook executado: `Projeto_Clusterizacao_executado.ipynb` (versão já rodada com saídas fixadas).
-  - HTMLs: `Projeto_Clusterizacao.html` e `Projeto_Clusterizacao_executado.html`.
-  - PDFs: `Projeto_Clusterizacao.pdf` e `Projeto_Clusterizacao2.pdf` (opcionais, para submissão/consulta).
 
 ## Base de Dados
 - Fonte: Kaggle — `rohan0301/unsupervised-learning-on-country-data`.
@@ -20,15 +17,12 @@ Resumo do projeto, como executar localmente, estrutura de pastas, decisões téc
 ## Estrutura de Pastas
 ```
 ├── Projeto_Clusterizacao.ipynb
-├── Projeto_Clusterizacao_executado.ipynb
-├── Projeto_Clusterizacao.html
-├── Projeto_Clusterizacao_executado.html
-├── Projeto_Clusterizacao.pdf
-├── clusterizacao/               # (opcional) ambiente virtual criado com venv
-├── data/                        # dados da base
+├── README.md
+├── data/
 │   ├── Country-data.csv
 │   └── data-dictionary.csv
-├── images/                      # gráficos e imagens geradas
+├── fabioferreirafigueiredo_algoritmosdeinteligenciaartificialparaclusterizacao_pd.pdf
+├── images/
 │   ├── boxplots_variaveis_numericas.png
 │   ├── dendrograma_ward_truncado.png
 │   ├── evidenciass.png
@@ -37,8 +31,7 @@ Resumo do projeto, como executar localmente, estrutura de pastas, decisões téc
 │   ├── pca_2d_clusters.png
 │   └── perfil_clusters_barras.png
 ├── pd_algoritimos_clusterizacao/
-│   └── README.md                # documentação complementar do repositório
-└── requirements.txt             # dependências do projeto
+└── requirements.txt
 ```
 
 ## Requisitos
@@ -67,6 +60,27 @@ pip install -r requirements.txt
 Observações de ambiente:
 - Não sobrescreva arquivos `.env` sem confirmação (não são necessários para execução padrão deste projeto).
 - Padronize `random_state` e caminhos em um único bloco de configuração quando estender o projeto para múltiplos ambientes.
+
+## Git (repositório e clonagem)
+- Repositório oficial: https://github.com/fabioffigueiredo/pd_alg_clusterizacao
+
+Como clonar e preparar o ambiente local:
+```
+git clone https://github.com/fabioffigueiredo/pd_alg_clusterizacao.git
+cd pd_alg_clusterizacao
+
+# (opcional) criar e ativar ambiente virtual
+python3 -m venv clusterizacao
+source clusterizacao/bin/activate    # macOS/Linux
+# No Windows (PowerShell):
+# .\clusterizacao\Scripts\Activate.ps1
+
+# instalar dependências
+pip install -r requirements.txt
+
+# execução opcional para gerar HTML diretamente
+# jupyter nbconvert --to html --execute Projeto_Clusterizacao.ipynb --output Projeto_Clusterizacao.html
+```
 
 ## Quick Start (execução mínima)
 ```
